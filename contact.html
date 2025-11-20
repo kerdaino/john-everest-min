@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — John Everest Ministries Int'l</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body class="page-contact">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><img src="assets/logo.jpg" alt="Logo" class="logo" /></a>
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Contact</h1>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Get in touch</h2>
+        <p><strong>Phone:</strong> <a href="tel:+234000000000">+234 000 000 000</a></p>
+        <p><strong>Email:</strong> <a href="mailto:info@example.com">info@example.com</a></p>
+        <p><strong>Address:</strong> [Ministry address]</p>
+        <p><strong>WhatsApp:</strong> <a href="https://chat.whatsapp.com/">Click to chat</a></p>
+      </div>
+
+      <div class="contact-form">
+        <h2>Send a message</h2>
+        <form id="contactForm" action="/api/contact" method="POST" novalidate>
+          <label for="name">Name</label>
+          <input id="name" name="name" required type="text" />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" required type="email" />
+
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+
+          <button class="btn primary" type="submit">Send message</button>
+          <div id="contactResult" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer container">
+    <p>© <span id="year"></span> John Everest Ministries Int'l</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Minimal client-side submit handler — posts to serverless endpoint /api/contact
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = {
+        name: contactForm.name.value.trim(),
+        email: contactForm.email.value.trim(),
+        phone: contactForm.phone.value.trim(),
+        message: contactForm.message.value.trim()
+      };
+      document.getElementById('contactResult').textContent = 'Sending...';
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (res.ok) {
+          document.getElementById('contactResult').textContent = 'Message sent. Thank you!';
+          contactForm.reset();
+        } else {
+          const txt = await res.text();
+          document.getElementById('contactResult').textContent = 'Error: ' + txt;
+        }
+      } catch (err) {
+        document.getElementById('contactResult').textContent = 'Network error. Try again later.';
+      }
+    });
+  </script>
+</body>
+</html>

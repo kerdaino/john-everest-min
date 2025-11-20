@@ -1,0 +1,92 @@
+/* components.css - small component styles (forms, posts, cards) */
+
+.posts-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.post-card {
+    display: flex;
+    gap: 1rem;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.post-card img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.post-body h2 {
+    margin: .2rem 0;
+}
+
+.post-body .excerpt {
+    color: var(--muted);
+}
+
+.meta {
+    font-size: .85rem;
+    color: var(--muted);
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.book-card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    text-align: center;
+}
+
+.book-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* contact form */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-top: .6rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: .6rem;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+/* small screens */
+@media (max-width:700px) {
+    .posts-list {
+        grid-template-columns: 1fr;
+    }
+
+    .books-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>John Everest Ministries Int'l — Home</title>
+  <meta name="description" content="John Everest Ministries Int'l — Official website for John Everest Ministries International." />
+  <link rel="icon" href="assets/logo.jpg" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body class="page-home">
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/everest-logo.svg" alt="John Everest Ministries Int'l — Logo" class="logo" />
+        <span class="visually-hidden">John Everest Ministries Int'l</span>
+      </a>
+      <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-expanded="false" aria-controls="mainNavList">Menu</button>
+        <ul id="mainNavList" class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="sermon.html">Sermons</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a class="cta donate" href="#donate">Donate</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="main" role="main">
+    <section id="hero" class="hero">
+      <div class="hero-media">
+        <!-- make sure to replace with client provided photo(s) -->
+        <img src="assets/hero-prayer.jpeg" alt="Congregation praying" class="hero-bg" loading="lazy" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="container hero-content" data-aos="fade-up">
+        <div class="hero-left">
+          <h1 class="hero-title">Welcome to John Everest Ministries Int'l</h1>
+          <p class="hero-sub">"A house of prayer, revival, and sound teaching. Join us in impacting lives." — Apostle Everest Okoli</p>
+          <div class="hero-ctas">
+            <a class="btn primary" href="#donate">Donate</a>
+            <a class="btn ghost" href="sermon.html">Watch Sermons</a>
+            <a class="btn ghost" href="https://chat.whatsapp.com/" target="_blank" rel="noopener">Join Community</a>
+            <a class="btn ghost" href="about.html">Read About</a>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <!-- micro Lottie/animation placeholder: will use CSS + small optional Lottie/Gsap -->
+          <div id="hero-micro" aria-hidden="true"></div>
+          <div class="quote-flip" aria-live="polite">
+            <div id="quoteText" class="quote-text">"Love never fails."</div>
+            <a id="quoteMore" class="btn small" href="quotes.html">Click for more</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK FEATURES -->
+    <section id="features" class="features container" data-aos="fade-up">
+      <div class="feature-grid">
+        <article class="feature-card" tabindex="0">
+          <h3>Sermons</h3>
+          <p>Latest messages from Apostle Everest — video & audio available.</p>
+          <a class="link" href="sermon.html">Watch sermons →</a>
+        </article>
+
+        <article class="feature-card" tabindex="0">
+          <h3>Join a Community</h3>
+          <p>WhatsApp groups, Facebook community, and local fellowships.</p>
+          <a class="link" href="#communities">Join →</a>
+        </article>
+
+        <article class="feature-card" tabindex="0">
+          <h3>Donate</h3>
+          <p>Support the 5000 Souls campaign and ministry outreaches.</p>
+          <a class="link" href="#donate">Donate →</a>
+        </article>
+
+        <article class="feature-card" tabindex="0">
+          <h3>Books</h3>
+          <p>Books authored by Apostle Everest — available to buy or download.</p>
+          <a class="link" href="books.html">See books →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section id="vision-mission" class="container vm" data-aos="fade-up">
+      <div class="vm-inner">
+        <div>
+          <h2>Vision</h2>
+          <p>To see lives transformed by the gospel of Christ—discipling nations and raising revival leaders.</p>
+        </div>
+        <div>
+          <h2>Mission</h2>
+          <p>Equipping believers through teaching, prayer, and worldwide outreach to fulfill the Great Commission.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Campaign -->
+    <section id="donate" class="container campaign" data-aos="fade-up">
+      <div class="campaign-card">
+        <h2>5000 Souls in 2026 — Soul-winning Mandate</h2>
+        <p>Join our campaign to reach 5000 souls in 2026. Your support funds outreach, materials, and logistics.</p>
+        <div class="campaign-actions">
+          <a class="btn primary" href="https://paystack.com" target="_blank" rel="noopener">Donate via Paystack</a>
+          <a class="btn" href="https://paypal.me" target="_blank" rel="noopener">Donate via PayPal</a>
+          <button class="btn ghost" id="bankDetailsBtn">See Bank Details</button>
+        </div>
+        <div id="bankDetails" class="bank-details" hidden>
+          <p><strong>Account:</strong> John Everest Ministries Int'l</p>
+          <p><strong>Bank:</strong> Example Bank</p>
+          <p><strong>Account Number:</strong> 1234567890</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery preview -->
+    <section id="gallery" class="container" data-aos="fade-up">
+      <h2>Media Gallery</h2>
+      <div class="swiper-container gallery-swiper">
+        <div class="swiper-wrapper">
+          <!-- slides will be injected by gallery.js -->
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+      <p><a class="link" href="blog.html">Browse more media & sermons →</a></p>
+    </section>
+
+    <!-- Join communities -->
+    <section id="communities" class="container" data-aos="fade-up">
+      <h2>Join Our Communities</h2>
+      <div class="communities-grid">
+        <div class="community-card">
+          <h3>WhatsApp</h3>
+          <p>Join our main WhatsApp fellowship.</p>
+          <a class="btn" href="https://chat.whatsapp.com/" target="_blank">Join WhatsApp</a>
+        </div>
+        <div class="community-card">
+          <h3>Facebook Group</h3>
+          <p>Community discussions and updates.</p>
+          <a class="btn" href="https://www.facebook.com/" target="_blank">Visit Group</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <img src="assets/logo.jpg" alt="John Everest Ministries Int'l logo" class="footer-logo" />
+        <p>© <span id="year"></span> John Everest Ministries Int'l. All rights reserved.</p>
+      </div>
+      <div class="footer-right">
+        <nav aria-label="Footer">
+          <ul class="footer-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="sermon.html">Sermons</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="socials">
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="YouTube">YT</a>
+          <a href="#" aria-label="WhatsApp">WA</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="js/sanity.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/hero.js"></script>
+  <script src="js/quotes.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 700 });
+  </script>
+</body>
+</html>

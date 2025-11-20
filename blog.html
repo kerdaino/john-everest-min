@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sermons & Blog — John Everest Ministries Int'l</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body class="page-blog">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><img src="assets/logo.jpg" alt="Logo" class="logo" /></a>
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="books.html">Books</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Sermons & Blog</h1>
+    <p>Latest teachings, audio and video messages. Use the CMS to add new posts.</p>
+
+    <section id="postsList" class="posts-list" data-aos="fade-up">
+      <!-- Posts will be injected by js/sanity.js when backend connected -->
+      <article class="post-card">
+        <img src="assets/placeholder.webp" alt="Featured image" loading="lazy" />
+        <div class="post-body">
+          <h2><a href="sermon.html?id=example">Sample Sermon Title</a></h2>
+          <p class="excerpt">Short excerpt of the sermon...</p>
+          <div class="meta">Jan 1, 2025 • 15 min • Tag1, Tag2</div>
+        </div>
+      </article>
+    </section>
+
+    <div class="pagination" aria-label="Pagination">
+      <button class="btn" id="loadMore">Load more</button>
+    </div>
+  </main>
+
+  <footer class="site-footer container">
+    <p>© <span id="year"></span> John Everest Ministries Int'l</p>
+  </footer>
+
+  <script src="js/sanity.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

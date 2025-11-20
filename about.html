@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Apostle Everest Okoli</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body class="page-about">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.jpg" alt="Logo" class="logo" />
+      </a>
+      <nav class="main-nav" role="navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sermon.html">Sermons</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="founder" data-aos="fade-up">
+      <div class="founder-grid">
+        <div class="founder-photo">
+          <img src="assets/logo.jpg" alt="Apostle Everest Okoli photo" loading="lazy" />
+        </div>
+        <div class="founder-bio">
+          <h1>Apostle Everest Okoli</h1>
+          <p class="lead">Founder — John Everest Ministries Int'l</p>
+
+          <div id="bioShort">
+            <p>
+              Apostle Everest Okoli is a passionate minister and revivalist...
+              <!-- Short intro — replace with the long bio provided by client -->
+            </p>
+            <button id="readMoreBtn" class="btn small">Read More</button>
+          </div>
+
+          <div id="bioLong" hidden>
+            <p>
+              <!-- Paste the long bio here when available. This area is collapsible. -->
+              [Long biography goes here — paste the client-provided long bio.]
+            </p>
+            <button id="readLessBtn" class="btn small">Read Less</button>
+          </div>
+
+          <div class="social-contact">
+            <a class="btn ghost" href="mailto:info@example.com">Email</a>
+            <a class="btn ghost" href="tel:+234000000000">Call</a>
+            <a class="btn ghost" href="https://chat.whatsapp.com/">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="partners" data-aos="fade-up">
+      <h2>Partners</h2>
+      <div class="partners-grid" id="partnersGrid">
+        <!-- partners logos injected by sanity.js in future -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="yearFooter"></span> John Everest Ministries Int'l</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('readMoreBtn').addEventListener('click', () => {
+      document.getElementById('bioShort').hidden = true;
+      document.getElementById('bioLong').hidden = false;
+    });
+    document.getElementById('readLessBtn').addEventListener('click', () => {
+      document.getElementById('bioShort').hidden = false;
+      document.getElementById('bioLong').hidden = true;
+    });
+  </script>
+</body>
+</html>
