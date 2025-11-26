@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/components.css" />
+  <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body class="page-home">
   <header class="site-header" role="banner">
@@ -70,7 +72,7 @@
         <article class="feature-card" tabindex="0">
           <h3>Sermons</h3>
           <p>Latest messages from Apostle Everest — video & audio available.</p>
-          <a class="link" href="sermon.html">Watch sermons →</a>
+          <a class="link" href="sermon.html" >Watch sermons →</a>
         </article>
 
         <article class="feature-card" tabindex="0">
@@ -112,15 +114,12 @@
       <div class="campaign-card">
         <h2>5000 Souls in 2026 — Soul-winning Mandate</h2>
         <p>Join our campaign to reach 5000 souls in 2026. Your support funds outreach, materials, and logistics.</p>
-        <div class="campaign-actions">
-          <a class="btn primary" href="https://paystack.com" target="_blank" rel="noopener">Donate via Paystack</a>
-          <a class="btn" href="https://paypal.me" target="_blank" rel="noopener">Donate via PayPal</a>
-          <button class="btn ghost" id="bankDetailsBtn">See Bank Details</button>
-        </div>
-        <div id="bankDetails" class="bank-details" hidden>
+        <div id="bankDetails" class="bank-details" >
           <p><strong>Account:</strong> John Everest Ministries Int'l</p>
-          <p><strong>Bank:</strong> Example Bank</p>
-          <p><strong>Account Number:</strong> 1234567890</p>
+          <p><strong>Bank:</strong> Zenith Bank</p>
+          <p><strong>Naira:</strong> 1224316337</p>
+          <p><strong>Dollar:</strong> 5074454544</p>
+          <p><strong>Euro:</strong> 5081118376</p>
         </div>
       </div>
     </section>
@@ -132,25 +131,49 @@
         <div class="swiper-wrapper">
           <!-- slides will be injected by gallery.js -->
         </div>
-        <div class="swiper-pagination"></div>
+        <div class="swiper-wrapper"></div>
+<!-- Pagination (dots) -->
+    <div class="swiper-pagination" aria-hidden="false" aria-label="Gallery pagination"></div>
+
+    <!-- Navigation (arrows) -->
+    <button class="swiper-button-prev" aria-label="Previous slide" type="button"></button>
+    <button class="swiper-button-next" aria-label="Next slide" type="button"></button>
+  </div>
       </div>
       <p><a class="link" href="blog.html">Browse more media & sermons →</a></p>
     </section>
 
     <!-- Join communities -->
-    <section id="communities" class="container" data-aos="fade-up">
+    <section id="features" class="container" data-aos="fade-up">
+      <div class="feature-grid">
+        <div class="feature-card">
       <h2>Join Our Communities</h2>
-      <div class="communities-grid">
         <div class="community-card">
           <h3>WhatsApp</h3>
           <p>Join our main WhatsApp fellowship.</p>
-          <a class="btn" href="https://chat.whatsapp.com/" target="_blank">Join WhatsApp</a>
+          <a class="btn" href="https://chat.whatsapp.com/Dmgurm8gLhyGuT8dxaN2B2?mode=wwt" target="_blank">Join WhatsApp</a>
+          <h3>Community discussions and updates.</h3>
+          <a class="btn" href="https://whatsapp.com/channel/0029Vb6j1v8EwEk3pNyy4V1I" target="_blank">Join Channel</a>
         </div>
         <div class="community-card">
           <h3>Facebook Group</h3>
           <p>Community discussions and updates.</p>
-          <a class="btn" href="https://www.facebook.com/" target="_blank">Visit Group</a>
+          <a class="btn" href="https://www.facebook.com/Johneverestministries" target="_blank">Visit Group</a>
         </div>
+      </div>
+      <div class="feature-card">
+    <!-- Connect with Apostle -->
+      <h2>Connect with Apostle J C Okoli</h2>
+        <div class="community-card">
+          <h3>WhatsApp</h3>
+          <p>Join our WhatsApp Channel.</p>
+          <a class="btn" href="https://whatsapp.com/channel/0029Vb6Pyed5EjxpBX0TZ041" target="_blank">Join Channel</a>
+
+          <p>Chat With The Apostle</p>
+          <a class="btn" href="https://wa.me/qr/2U7JBSCX4QA5J1" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+          <a class="btn" href="https://www.facebook.com/Evangelistjcokoli" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+      </div>
       </div>
     </section>
 
@@ -159,22 +182,23 @@
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-inner">
       <div class="footer-left">
-        <img src="assets/logo.jpg" alt="John Everest Ministries Int'l logo" class="footer-logo" />
-        <p>© <span id="year"></span> John Everest Ministries Int'l. All rights reserved.</p>
+        <img src="assets/everest-logo.svg" alt="John Everest Ministries Int'l logo" class="footer-logo" width="32" style="border-radius: 10px;"/>
+        <p>© <span id="year"></span> <a href="https://www.kdevglobal.com" target="_blank">Built By KD Global. All rights reserved.</a></p>
       </div>
       <div class="footer-right">
         <nav aria-label="Footer">
           <ul class="footer-links">
-            <li><a href="about.html">About</a></li>
+            <li><a href="about.html" >About</a></li>
             <li><a href="books.html">Books</a></li>
             <li><a href="sermon.html">Sermons</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
         <div class="socials">
-          <a href="#" aria-label="Facebook">FB</a>
-          <a href="#" aria-label="YouTube">YT</a>
-          <a href="#" aria-label="WhatsApp">WA</a>
+          <a href="https://www.facebook.com/Johneverestministries" aria-label="Facebook" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.youtube.com/@JohnEverestMinistriesintl-k9y" aria-label="YouTube" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://chat.whatsapp.com/Dmgurm8gLhyGuT8dxaN2B2?mode=wwt" aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.instagram.com/johneverestministries/tagged/?hl=en" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
         </div>
       </div>
     </div>

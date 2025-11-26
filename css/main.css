@@ -11,6 +11,9 @@
     --gap: 1rem;
     --container-padding: 1rem;
     --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    --cursor-dove: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjRkRDOEIwIiBkPSJNMjAgMTFsLTggMy0yLTEtNC00IDMtMS0yLTYgNyAyIDQgMyAyIDIgMSA1LTJ6Ii8+PC9zdmc+") 12 12, pointer;
+    --cursor-menorah: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZjMDAwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMyA1djNhMyAzIDAgMCAwIDMgM2gzTTE5IDV2M2EzIDMgMCAwIDEtMyAzSDlNNyAyMnYtM2g2djNNOCA4aDEwIi8+PC9zdmc+") 7 7, default;
+
 }
 
 /* Reset-ish */
@@ -32,6 +35,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.5;
     font-size: 16px;
+    cursor: var(--cursor-menorah);
 }
 
 /* Accessibility helpers */
@@ -41,6 +45,35 @@ body {
     width: 1px;
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* Clickable cursor override */
+a,
+button,
+.btn,
+input[type="submit"],
+[role="button"],
+.clickable {
+  cursor: var(--cursor-dove) !important;
+}
+
+/* General link style */
+a {
+  color: #c60000;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+a:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+a:hover,
+button:hover,
+.btn:hover {
+  filter: drop-shadow(0 0 6px rgba(198, 0, 0, 0.4));
 }
 
 /* Layout */
@@ -57,6 +90,7 @@ body {
     top: 0;
     z-index: 50;
     border-bottom: 1px solid #eee;
+    margin: 5px;
 }
 
 .header-inner {
@@ -100,6 +134,47 @@ body {
 .main-nav .nav-list a.cta.donate {
     background: var(--accent);
     color: #fff;
+}
+
+/* Navigation animated underline */
+nav a {
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #c60000;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Buttons unified */
+button,
+.btn,
+input[type="submit"] {
+  background: #c60000;
+  color: #fff;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+button:hover,
+.btn:hover,
+input[type="submit"]:hover {
+  background: #000;
+  box-shadow: 0 0 12px rgba(198, 0, 0, 0.45);
+  transform: translateY(-3px) scale(1.03);
 }
 
 /* Mobile menu fallback */
@@ -185,6 +260,51 @@ body {
     font-size: .9rem;
 }
 
+.quote-flip {
+  padding: 1.2rem;
+  border-radius: var(--radius);
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  text-align: center;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: floatSubtle 6s infinite ease-in-out;
+}
+
+.quote-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #fff;
+  text-shadow: 0 0 3px rgba(0,0,0,0.6), 0 0 7px rgba(200,16,46,0.8);
+  transition: 0.2s ease;
+}
+
+/* subtle floating animation */
+@keyframes floatSubtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* breathing glowing circle */
+.micro-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,16,46,0.35), transparent);
+  animation: breatheGlow 5s infinite ease-in-out;
+}
+
+@keyframes breatheGlow {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.3); opacity: 0.85; }
+}
+
+
 /* cards & grid */
 .feature-grid {
     display: grid;
@@ -208,11 +328,139 @@ body {
     background: #fff;
 }
 
-/* gallery swiper */
+/* === Gallery: fixed viewport, contain images, consistent slides === */
+
 .gallery-swiper {
-    height: 260px;
-    margin: 1rem 0;
+  width: 100%;
+  margin: 1rem 0;
+  --gallery-height: 420px;
+  height: var(--gallery-height);
 }
+
+.gallery-swiper .swiper-slide {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12px;
+  background: transparent; /* ensures no default black shows */
+}
+
+/* Shadow Echo Background Effect */
+.gallery-swiper .swiper-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background-image: var(--slide-bg);
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.25);
+
+  filter: blur(28px) brightness(0.32) contrast(1.1);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+/* Optional subtle dark overlay like the reference */
+.gallery-swiper .swiper-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(0,0,0,0.15); /* creates soft dim without being black */
+  border-radius: inherit;
+}
+
+/* Make shadow slightly stronger when slide is active */
+.gallery-swiper .swiper-slide-active::before {
+  opacity: 0.82;
+}
+
+/* Foreground image remains consistent */
+.gallery-swiper .slide-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-swiper .slide-inner img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: 0 6px 26px rgba(0,0,0,0.38); /* clean card shadow glow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-swiper .slide-inner img:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 10px 32px rgba(255,215,0,0.25), 0 4px 14px rgba(0,0,0,0.45);
+}
+
+/* === Swiper Navigation Arrows (consistent, spiritual gold style) === */
+.gallery-swiper .swiper-button-next,
+.gallery-swiper .swiper-button-prev {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(212,175,55,0.18); /* soft gold BG */
+  border: 2px solid rgba(212,175,55,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: gold; /* do NOT set specific hand icon style */
+  backdrop-filter: blur(6px);
+  transition: 0.3s ease;
+  cursor: var(--cursor-dove);
+}
+
+.gallery-swiper .swiper-button-next::after,
+.gallery-swiper .swiper-button-prev::after {
+  font-size: 1em;
+  font-weight: 900;
+  color: #d4af37; /* visible inside arrow icon, safe to inline */
+}
+
+.gallery-swiper .swiper-button-next:hover,
+.gallery-swiper .swiper-button-prev:hover {
+  transform: scale(1.15);
+  background: rgba(212,175,55,0.34);
+  box-shadow: 0 0 14px rgba(212,175,55,0.6);
+}
+
+/* === Pagination Dots Styled like Nav Dots === */
+.gallery-swiper .swiper-pagination {
+  bottom: 16px !important;
+}
+
+.gallery-swiper .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(212,175,55,0.8);
+  opacity: 1;
+  transform: scale(0.92);
+  transition: 0.3s ease;
+}
+
+.gallery-swiper .swiper-pagination-bullet-active {
+  transform: scale(1.28);
+  box-shadow: 0 0 10px rgba(212,175,55,0.8);
+}
+
+/* === Add arrows to the DOM container (make sure HTML has these elements) === */
+.swiper-button-next,
+.swiper-button-prev {
+  user-select: none;
+}
+
+
 
 /* footer */
 .site-footer {
@@ -237,7 +485,29 @@ body {
 
     .main-nav .nav-list {
         display: none;
+        flex-direction: column; /* vertical links */
+    width: 100%;
+    gap: 0.8rem;
+    text-align: left;
+    padding: 1rem 0;
+    background: rgba(11, 11, 11, 0.97);
+    border-radius: var(--radius);
+    position: absolute;
+    top: 100%;
+    right: 0;
     }
+
+    .main-nav .nav-list a {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    color: #fff;
+    font-size: 1rem;
+  }
+
+  .main-nav .nav-list a.cta.donate {
+    width: 100%;
+    text-align: center;
+  }
 
     .mobile-menu-btn {
         display: inline-block;
@@ -246,12 +516,35 @@ body {
     .feature-grid {
         grid-template-columns: 1fr;
     }
+
+    .communities-grid {
+    grid-template-columns: 1fr; /* single column on tablet/mobile */
+  }
+
+  .gallery-swiper {
+    --gallery-height: 320px;}
+
+    .hero-ctas .btn{
+        margin: 5px;
+    }
+}
+
+/* small screens: reduce gallery height */
+
+@media (max-width: 480px) {
+  .gallery-swiper {
+    --gallery-height: 260px;
+  }
 }
 
 /* utility */
 .link {
     text-decoration: underline;
     color: var(--accent);
+}
+
+.link:hover{
+    color: #000 !important;
 }
 
 .micro-circle {
