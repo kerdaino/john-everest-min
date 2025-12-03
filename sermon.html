@@ -4,47 +4,124 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sermon — John Everest Ministries Int'l</title>
+
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 </head>
+
 <body class="page-sermon">
+  
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html"><img src="assets/logo.jpg" alt="Logo" class="logo" /></a>
+
+      <a class="brand" href="index.html">
+        <img src="assets/everest-logo.svg"
+          alt="John Everest Ministries Int'l — Logo"
+          class="logo" />
+      </a>
+
       <nav class="main-nav">
-        <ul class="nav-list">
+        <button id="mobileMenuBtn" class="mobile-menu-btn"
+          aria-expanded="false" aria-controls="mainNavList">Menu</button>
+
+        <ul id="mainNavList" class="nav-list">
           <li><a href="index.html">Home</a></li>
-          <li><a href="blog.html">Sermons</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+
     </div>
   </header>
 
-  <main class="container">
-    <article id="post" class="post" data-aos="fade-up">
-      <h1 id="postTitle">Sermon Title</h1>
-      <div class="meta" id="postMeta">Published • Duration • Tags</div>
-      <img id="postImage" src="assets/placeholder.webp" alt="Featured image" loading="lazy" />
-      <div id="postContent" class="post-content">
-        <p>Full sermon content will appear here. Support for embedded YouTube or audio links is included.</p>
+  <!-- MAIN SERMON CONTENT -->
+  <main class="container sermon-wrapper">
+
+    <article id="post" class="sermon-article" data-aos="fade-up">
+
+      <!-- Title -->
+      <h1 id="postTitle" class="sermon-title">Sermon Title</h1>
+
+      <!-- Meta -->
+      <div class="sermon-meta" id="postMeta">
+        <span>Published: April 2025</span>
+        <span>•</span>
+        <span>Duration: 1hr 22min</span>
+        <span>•</span>
+        <span id="sermonTags">Faith, Revival</span>
       </div>
 
-      <div class="post-media" id="postMedia">
-        <!-- optional video or audio embeds -->
+      <!-- Featured Image -->
+      <div class="sermon-featured">
+        <img id="postImage" src="assets/placeholder.webp" alt="Sermon featured image" loading="lazy"/>
       </div>
 
-      <div class="post-actions">
-        <a class="btn" href="#">Share</a>
-        <a class="btn ghost" href="https://chat.whatsapp.com/">Discuss on WhatsApp</a>
+      <!-- Main Content -->
+      <div id="postContent" class="sermon-content">
+        <p>This is where the full sermon content goes. This area will support long paragraphs, scriptures, teachings, and testimonies.</p>
+
+        <p>You can also embed scriptures like:</p>
+        <blockquote>
+          "For the earth will be filled with the knowledge of the glory of the Lord as the waters cover the sea."  
+          <span>— Habakkuk 2:14</span>
+        </blockquote>
       </div>
+
+      <!-- Embedded Media -->
+      <div id="postMedia" class="sermon-media">
+        <!-- Example embed placeholders -->
+        <!-- YouTube -->
+        <!-- <div class="media-box">
+            <iframe src="https://www.youtube.com/embed/VIDEOID" loading="lazy" allowfullscreen></iframe>
+        </div> -->
+      </div>
+
+      <!-- Buttons -->
+      <div class="sermon-actions">
+        <a class="btn" href="#" id="shareBtn">Share</a>
+        <a class="btn ghost dark" href="https://wa.me/234000000000">Discuss on WhatsApp</a>
+      </div>
+
     </article>
+
   </main>
 
-  <footer class="site-footer container">
-    <p>© <span id="year"></span> John Everest Ministries Int'l</p>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <img src="assets/everest-logo.svg" alt="Logo" class="footer-logo" width="32" />
+        <p>
+          © <span id="year"></span> John Everest Ministries Int'l  
+        </p>
+      </div>
+
+      <div class="footer-right">
+        <ul class="footer-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="sermon.html">Sermons</a></li>
+          <li><a href="books.html">Books</a></li>
+        </ul>
+
+        <div class="socials">
+          <a href="https://www.facebook.com/Johneverestministries" target="_blank">FB</a>
+          <a href="https://www.youtube.com/@JohnEverestMinistriesintl-k9y" target="_blank">YT</a>
+          <a href="https://wa.me/234000000000" target="_blank">WA</a>
+          <a href="https://www.instagram.com/johneverestministries" target="_blank">IG</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <script src="js/sanity.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 700 });
+  </script>
+
 </body>
 </html>

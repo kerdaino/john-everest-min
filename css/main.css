@@ -325,7 +325,7 @@ input[type="submit"]:hover {
     padding: 1rem;
     border-radius: 12px;
     border: 1px solid #eee;
-    background: #fff;
+    background: var(--accent);
 }
 
 /* === Gallery: fixed viewport, contain images, consistent slides === */

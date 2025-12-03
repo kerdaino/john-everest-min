@@ -4,84 +4,159 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About — Apostle Everest Okoli</title>
+
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 </head>
+
 <body class="page-about">
-  <header class="site-header">
+  
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <img src="assets/logo.jpg" alt="Logo" class="logo" />
+      <a class="brand" href="about.html">
+        <img src="assets/everest-logo.svg" alt="John Everest Ministries Int'l — Logo" class="logo" />
+        <span class="visually-hidden">John Everest Ministries Int'l</span>
       </a>
+
       <nav class="main-nav" role="navigation">
-        <ul class="nav-list">
-          <li><a href="index.html">Home</a></li>
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-expanded="false" aria-controls="mainNavList">
+          Menu
+        </button>
+
+        <ul id="mainNavList" class="nav-list">
+          <li><a href="/index.html">Home</a></li>
           <li><a href="sermon.html">Sermons</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="events.html">Events</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+  <!-- MAIN -->
   <main id="main" class="container">
+    
+    <!-- FOUNDER SECTION -->
     <section class="founder" data-aos="fade-up">
       <div class="founder-grid">
+
+        <!-- Founder Photo -->
         <div class="founder-photo">
-          <img src="assets/logo.jpg" alt="Apostle Everest Okoli photo" loading="lazy" />
+          <img src="assets/gallery14.jpeg" alt="Apostle Everest Okoli" loading="lazy" />
         </div>
+
+        <!-- Founder Bio -->
         <div class="founder-bio">
-          <h1>Apostle Everest Okoli</h1>
+          <h1 class="founder-name">Apostle Everest Okoli</h1>
           <p class="lead">Founder — John Everest Ministries Int'l</p>
 
+          <!-- Short Bio -->
           <div id="bioShort">
             <p>
-              Apostle Everest Okoli is a passionate minister and revivalist...
-              <!-- Short intro — replace with the long bio provided by client -->
+              Apostle Everest Okoli is a passionate minister and revivalist, called to raise men
+              into spiritual maturity, prophetic accuracy, and kingdom relevance…
             </p>
             <button id="readMoreBtn" class="btn small">Read More</button>
           </div>
 
+          <!-- Long Bio -->
           <div id="bioLong" hidden>
             <p>
-              <!-- Paste the long bio here when available. This area is collapsible. -->
-              [Long biography goes here — paste the client-provided long bio.]
+              Apostle Everest Okoli is a passionate evangelist, apostolic teacher, and prophetic revivalist commissioned by God to raise a generation into spiritual maturity, prophetic accuracy, and kingdom relevance. With an unshakeable call to intercession and soul-winning, Apostle Everest carries a burning mandate for global revival through prayer, discipleship, and the undiluted preaching of Jesus Christ.
+Born in Nigeria, Apostle Everest encountered Christ at a young age and soon embraced a life consecrated to prayer and service. His ministry journey has been marked by deep encounters with the Holy Spirit, prophetic clarity, and a strong apostolic burden to equip believers for impact. He serves as the founder and lead minister of · John Everest Ministries International — a Spirit-led global ministry committed to prayer movements, evangelism campaigns, sound doctrine, and human spiritual development.
+· John Everest Ministries International drives prayer initiatives through platforms like · Prayer Walks, · Revival Night Vigils, · Kingdom Intercession Conferences, and online prayer communities. Apostle Everest teaches consistently from scripture, drawing inspiration from works and materials that include · The Bible, · Smith Wigglesworth teachings, · Charles Finney revival archives, · Billy Graham sermon archives, and the apostolic ministry model of · Early Church Christianity.
+Apostle Everest openly declares his life mission on earth is to win one billion souls for Christ, mobilizing the body of Christ toward what he calls the 1B Souls Revival Mandate. His core conviction is that prayer births revival, revival produces disciples, and disciples shift nations. He is widely known for preaching on the power of sustained prayer, prophetic alignment, spiritual formation, fasting, and strategic soul-winning.
+His ministry works actively across digital, local, and international mission fields, often using evangelism tools and channels such as · WhatsApp prayer communities, Facebook ministry circles, YouTube sermon releases, outreach literature distribution, children ministry discipleship, and prophetic training schools.
+Apostle Everest is a voice for believers who hunger for more — more accuracy, more spiritual fire, more souls in the kingdom, and more alignment with God’s will. His messages emphasize topics including:
+The supremacy of Christ
+The ministry of prayer and intercession
+Revival and transformation
+Prophetic sensitivity and accuracy
+Spiritual maturity and discipleship
+Soul-winning with urgency and strategy
+Fasting and consecration
+Kingdom relevance in everyday life
+Apostolic stewardship and responsibility
+Apostle Everest operates under the apostolic grace of building believers into Christ-reflecting ministers, leaders, and kingdom ambassadors. Through teaching, prayer activation, and evangelistic impartations, he challenges men to carry the presence of God beyond the church walls into their world.
+He is engaged to be married and is building his personal and family life on foundations of prayer, scripture, and ministry alignment.
+Apostle Everest Okoli is more than a preacher — he is a mobilizer, revivalist, intercessor, and father to a rising generation with a global mandate to reshape history through prayer and the Great Commission.
             </p>
             <button id="readLessBtn" class="btn small">Read Less</button>
           </div>
 
+          <!-- Contact Buttons -->
           <div class="social-contact">
-            <a class="btn ghost" href="mailto:info@example.com">Email</a>
-            <a class="btn ghost" href="tel:+234000000000">Call</a>
-            <a class="btn ghost" href="https://chat.whatsapp.com/">WhatsApp</a>
+            <a class="btn ghost dark" href="mailto:info@example.com">Email</a>
+            <a class="btn ghost dark" href="https://wa.me/qr/2U7JBSCX4QA5J1" target="_blank">WhatsApp</a>
           </div>
+
         </div>
       </div>
     </section>
 
+
+    <!-- PARTNERS SECTION -->
     <section class="partners" data-aos="fade-up">
-      <h2>Partners</h2>
+      <h2 class="partners-title">Partners & Affiliates</h2>
+      <p class="partners-sub">Trusted Kingdom organizations and ministries we collaborate with.</p>
+
       <div class="partners-grid" id="partnersGrid">
-        <!-- partners logos injected by sanity.js in future -->
+        <!-- From sanity CMS later -->
+        <div class="partner-card placeholder">Partner Logo</div>
+        <div class="partner-card placeholder">Partner Logo</div>
+        <div class="partner-card placeholder">Partner Logo</div>
       </div>
     </section>
+
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="yearFooter"></span> John Everest Ministries Int'l</p>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <img src="assets/everest-logo.svg" alt="John Everest Ministries Int'l logo" class="footer-logo" width="32" style="border-radius: 10px;"/>
+        <p>© <span id="year"></span> <a href="https://www.kdevglobal.com" target="_blank">Built By KD Global. All rights reserved.</a></p>
+      </div>
+      <div class="footer-right">
+        <nav aria-label="Footer">
+          <ul class="footer-links">
+            <li><a href="about.html" >About</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="sermon.html">Sermons</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="socials">
+          <a href="https://www.facebook.com/Johneverestministries" aria-label="Facebook" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.youtube.com/@JohnEverestMinistriesintl-k9y" aria-label="YouTube" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://chat.whatsapp.com/Dmgurm8gLhyGuT8dxaN2B2?mode=wwt" aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.instagram.com/johneverestministries/tagged/?hl=en" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
     </div>
   </footer>
 
+  
   <script src="js/main.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
+    AOS.init({ once: true, duration: 700 });
+
     document.getElementById('readMoreBtn').addEventListener('click', () => {
-      document.getElementById('bioShort').hidden = true;
-      document.getElementById('bioLong').hidden = false;
+      bioShort.hidden = true;
+      bioLong.hidden = false;
     });
+
     document.getElementById('readLessBtn').addEventListener('click', () => {
-      document.getElementById('bioShort').hidden = false;
-      document.getElementById('bioLong').hidden = true;
+      bioShort.hidden = false;
+      bioLong.hidden = true;
     });
   </script>
+
 </body>
 </html>

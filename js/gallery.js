@@ -7,7 +7,7 @@
   const slides = [
     '/assets/gallery1.jpeg',
     '/assets/gallery2.jpeg',
-    '/assets/gallery3.jpeg'
+    '/assets/gallery3.jpeg','/assets/gallery5.jpeg','/assets/gallery6.jpeg','/assets/gallery7.jpeg','/assets/gallery8.jpeg','/assets/gallery9.jpeg','/assets/gallery10.jpeg','/assets/gallery11.jpeg','/assets/gallery12.jpeg','/assets/gallery13.jpeg','/assets/gallery14.jpeg','/assets/gallery15.jpeg','/assets/gallery16.jpeg','/assets/gallery17.jpeg','/assets/gallery18.jpeg','/assets/gallery19.jpeg','/assets/gallery20.jpeg','/assets/gallery21.jpeg','/assets/gallery22.jpeg'
   ];
 
   const wrapper = document.querySelector('.gallery-swiper .swiper-wrapper');
