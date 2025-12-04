@@ -359,7 +359,7 @@
     grid-template-columns: 1fr;
   }
 
-  events-grid {
+  .events-grid {
     grid-template-columns: 1fr;
   }
 
