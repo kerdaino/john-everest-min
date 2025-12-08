@@ -1,220 +1,328 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>John Everest Ministries Int'l — Home</title>
-  <meta name="description" content="John Everest Ministries Int'l — Official website for John Everest Ministries International." />
-  <link rel="icon" href="assets/logo.jpg" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="css/components.css" />
-  <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Everest Ministries Int'l</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/css/main.css">
 </head>
-<body class="page-home">
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <img src="assets/everest-logo.svg" alt="John Everest Ministries Int'l — Logo" class="logo" />
-        <span class="visually-hidden">John Everest Ministries Int'l</span>
-      </a>
-      <nav class="main-nav" role="navigation" aria-label="Main navigation">
-        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-expanded="false" aria-controls="mainNavList">Menu</button>
-        <ul id="mainNavList" class="nav-list">
-          <li><a href="about.html">About</a></li>
-          <li><a href="sermon.html">Sermons</a></li>
-          <li><a href="books.html">Books</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a class="cta donate" href="#donate">Donate</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<body>
 
-  <!-- HERO -->
-  <main id="main" role="main">
-    <section id="hero" class="hero">
-      <div class="hero-media">
-        <!-- make sure to replace with client provided photo(s) -->
-        <img src="assets/hero-prayer.jpeg" alt="Congregation praying" class="hero-bg" loading="lazy" />
-        <div class="hero-overlay"></div>
-      </div>
+    <div class="cb-cursor"></div>
+    <div class="cb-cursor-follower"></div>
 
-      <div class="container hero-content" data-aos="fade-up">
-        <div class="hero-left">
-          <h1 class="hero-title">Welcome to John Everest Ministries Int'l</h1>
-          <p class="hero-sub">"A house of prayer, revival, and sound teaching. Join us in impacting lives." — Apostle Everest Okoli</p>
-          <div class="hero-ctas">
-            <a class="btn primary" href="#donate">Donate</a>
-            <a class="btn ghost" href="sermon.html">Watch Sermons</a>
-            <a class="btn ghost" href="https://chat.whatsapp.com/" target="_blank" rel="noopener">Join Community</a>
-            <a class="btn ghost" href="about.html">Read About</a>
-          </div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="/assets/everest-logo.svg" alt="John Everest Ministries" class="nav-logo"> 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="fa fa-bars text-gold"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#president">The President</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#programs">Programs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link btn-gold-nav" href="#contact">Give / Contact</a></li>
+                </ul>
+            </div>
         </div>
+    </nav>
 
-        <div class="hero-right">
-          <!-- micro Lottie/animation placeholder: will use CSS + small optional Lottie/Gsap -->
-          <div id="hero-micro" aria-hidden="true"></div>
-          <div class="quote-flip" aria-live="polite">
-            <div id="quoteText" class="quote-text">"Love never fails."</div>
-            <a id="quoteMore" class="btn small" href="quotes.html">Click for more</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- QUICK FEATURES -->
-    <section id="features" class="features container" data-aos="fade-up">
-      <div class="feature-grid">
-        <article class="feature-card" tabindex="0">
-          <h3>Sermons</h3>
-          <p>Latest messages from Apostle Everest — video & audio available.</p>
-          <a class="link" href="sermon.html" >Watch sermons →</a>
-        </article>
-
-        <article class="feature-card" tabindex="0">
-          <h3>Join a Community</h3>
-          <p>WhatsApp groups, Facebook community, and local fellowships.</p>
-          <a class="link" href="#communities">Join →</a>
-        </article>
-
-        <article class="feature-card" tabindex="0">
-          <h3>Donate</h3>
-          <p>Support the 5000 Souls campaign and ministry outreaches.</p>
-          <a class="link" href="#donate">Donate →</a>
-        </article>
-
-        <article class="feature-card" tabindex="0">
-          <h3>Books</h3>
-          <p>Books authored by Apostle Everest — available to buy or download.</p>
-          <a class="link" href="books.html">See books →</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- Vision & Mission -->
-    <section id="vision-mission" class="container vm" data-aos="fade-up">
-      <div class="vm-inner">
-        <div>
-          <h2>Vision</h2>
-          <p>To see lives transformed by the gospel of Christ—discipling nations and raising revival leaders.</p>
-        </div>
-        <div>
-          <h2>Mission</h2>
-          <p>Equipping believers through teaching, prayer, and worldwide outreach to fulfill the Great Commission.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Campaign -->
-    <section id="donate" class="container campaign" data-aos="fade-up">
-      <div class="campaign-card">
-        <h2>5000 Souls in 2026 — Soul-winning Mandate</h2>
-        <p>Join our campaign to reach 5000 souls in 2026. Your support funds outreach, materials, and logistics.</p>
-        <div id="bankDetails" class="bank-details" >
-          <p><strong>Account:</strong> John Everest Ministries Int'l</p>
-          <p><strong>Bank:</strong> Zenith Bank</p>
-          <p><strong>Naira:</strong> 1224316337</p>
-          <p><strong>Dollar:</strong> 5074454544</p>
-          <p><strong>Euro:</strong> 5081118376</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Gallery preview -->
-    <section id="gallery" class="container" data-aos="fade-up">
-      <h2>Media Gallery</h2>
-      <div class="swiper-container gallery-swiper">
+    <header id="home" class="swiper mySwiper">
         <div class="swiper-wrapper">
-          <!-- slides will be injected by gallery.js -->
+            <div class="swiper-slide hero-slide" style="background-image: url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=1920&auto=format&fit=crop');">
+                <div class="overlay"></div>
+                <div class="container h-100 d-flex align-items-center justify-content-center text-center">
+                    <div class="hero-content">
+                        <span class="sub-heading">Welcome to</span>
+                        <h1 class="display-2 fw-bold text-white mb-4">John Everest <br>Ministries Int'l</h1>
+                        <p class="lead text-white-50 mb-5">Restoring Apostolic Christianity with the mandate to birth the last days' revival.</p>
+                        <a href="#about" class="btn-gold">Discover Our Mandate</a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide hero-slide" style="background-image: url('https://images.unsplash.com/photo-1515162305285-0293e4767cc2?q=80&w=1920&auto=format&fit=crop');">
+                <div class="overlay"></div>
+                <div class="container h-100 d-flex align-items-center justify-content-center text-center">
+                    <div class="hero-content">
+                        <span class="sub-heading">Qavah Revival Network</span>
+                        <h1 class="display-2 fw-bold text-white mb-4">Igniting The <br>Fire of Revival</h1>
+                        <p class="lead text-white-50 mb-5">Raising a mighty army of believers forged in fervent prayer.</p>
+                        <a href="#programs" class="btn-gold">Join The Movement</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="swiper-wrapper"></div>
-<!-- Pagination (dots) -->
-    <div class="swiper-pagination" aria-hidden="false" aria-label="Gallery pagination"></div>
+        <div class="swiper-pagination"></div>
+    </header>
 
-    <!-- Navigation (arrows) -->
-    <button class="swiper-button-prev" aria-label="Previous slide" type="button"></button>
-    <button class="swiper-button-next" aria-label="Next slide" type="button"></button>
-  </div>
-      </div>
-      <p><a class="link" href="blog.html">Browse more media & sermons →</a></p>
+    <section id="about" class="section-padding bg-darker">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 gs-reveal">
+                    <span class="text-gold text-uppercase ls-2">Who We Are</span>
+                    <h2 class="display-5 text-white mt-2 mb-4">The Mother Ministry of <br>Qavah Revival Network</h2>
+                    <p class="text-gray">
+                        Welcome to John Everest Ministries Int'l. It is a ministry founded at such a time as this to bring balance to the body of Christ, restoring Apostolic Christianity with the mandate to birth the last days' revival that will herald the second coming of Christ. 
+                    </p>
+                    <p class="text-gray">
+                        It's an Apostolic movement forged with might, power, prayer, signs, and wonders, saddled with the mantle of revival and Sound doctrine.
+                    </p>
+                    <div class="mt-4">
+                        <img src="images/signature.png" alt="Signature" style="height: 50px; opacity: 0.7;">
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0 gs-reveal">
+                    <div class="image-frame-tilt">
+                        <img src="https://images.unsplash.com/photo-1544427920-c49ccfb85579?q=80&w=800&auto=format&fit=crop" class="img-fluid" alt="Prayer Background">
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Join communities -->
-    <section id="features" class="container" data-aos="fade-up">
-      <div class="feature-grid">
-        <div class="feature-card">
-      <h2>Join Our Communities</h2>
-        <div class="community-card">
-          <h3>WhatsApp</h3>
-          <p>Join our main WhatsApp fellowship.</p>
-          <a class="btn" href="https://chat.whatsapp.com/Dmgurm8gLhyGuT8dxaN2B2?mode=wwt" target="_blank">Join WhatsApp</a>
-          <h3>Community discussions and updates.</h3>
-          <a class="btn" href="https://whatsapp.com/channel/0029Vb6j1v8EwEk3pNyy4V1I" target="_blank">Join Channel</a>
+    <section class="section-padding bg-black text-center border-top-dark">
+        <div class="container">
+            <div class="swiper quoteSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <h3 class="serif fst-italic text-white">"The depth of your root determines the height of your shoot in the spirit."</h3>
+                    </div>
+                    <div class="swiper-slide">
+                        <h3 class="serif fst-italic text-white">"Revival is not an event, it is a lifestyle of sustained hunger."</h3>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <a href="gallery.html" class="link-gold">Click for more quotes <i class="fas fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
         </div>
-        <div class="community-card">
-          <h3>Facebook Group</h3>
-          <p>Community discussions and updates.</p>
-          <a class="btn" href="https://www.facebook.com/Johneverestministries" target="_blank">Visit Group</a>
-        </div>
-      </div>
-      <div class="feature-card">
-    <!-- Connect with Apostle -->
-      <h2>Connect with Apostle J C Okoli</h2>
-        <div class="community-card">
-          <h3>WhatsApp</h3>
-          <p>Join our WhatsApp Channel.</p>
-          <a class="btn" href="https://whatsapp.com/channel/0029Vb6Pyed5EjxpBX0TZ041" target="_blank">Join Channel</a>
-
-          <p>Chat With The Apostle</p>
-          <a class="btn" href="https://wa.me/qr/2U7JBSCX4QA5J1" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-          <a class="btn" href="https://www.facebook.com/Evangelistjcokoli" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-        </div>
-      </div>
-      </div>
     </section>
 
-  </main>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-inner">
-      <div class="footer-left">
-        <img src="assets/everest-logo.svg" alt="John Everest Ministries Int'l logo" class="footer-logo" width="32" style="border-radius: 10px;"/>
-        <p>© <span id="year"></span> <a href="https://www.kdevglobal.com" target="_blank">Built By KD Global. All rights reserved.</a></p>
-      </div>
-      <div class="footer-right">
-        <nav aria-label="Footer">
-          <ul class="footer-links">
-            <li><a href="about.html" >About</a></li>
-            <li><a href="books.html">Books</a></li>
-            <li><a href="sermon.html">Sermons</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-        <div class="socials">
-          <a href="https://www.facebook.com/Johneverestministries" aria-label="Facebook" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-          <a href="https://www.youtube.com/@JohnEverestMinistriesintl-k9y" aria-label="YouTube" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://chat.whatsapp.com/Dmgurm8gLhyGuT8dxaN2B2?mode=wwt" aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-          <a href="https://www.instagram.com/johneverestministries/tagged/?hl=en" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+    <section id="president" class="section-padding bg-darker">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 mb-5 mb-lg-0 gs-reveal">
+                    <div class="president-img-wrapper">
+                        <img src="images/apostle.jpg" alt="Apostle Everest Okoli" class="img-fluid w-100"> 
+                    </div>
+                    <div class="social-icons mt-4 text-center">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-7 ps-lg-5 gs-reveal">
+                    <span class="text-gold text-uppercase ls-2">About The President</span>
+                    <h2 class="display-6 text-white mt-2 mb-4">Apostle Everest Okoli</h2>
+                    <h5 class="text-white fst-italic mb-3">Man of Power, Fire, and Prayer</h5>
+                    <p class="text-gray">
+                        Okoli Everestus Chidolue John is a Revivalist, a Discipler, a Teacher par excellence, an Apostle to Nations, and a Prophet of God. Born on January 26, 1991, in Anambra State, Nigeria, he gave his life to Christ in 2007.
+                    </p>
+                    <p class="text-gray">
+                        An erudite Criminologist and theologian, he founded John Everest Ministries Int'l in 2020. He has been influenced by the ministry of Apostle Arome Osayi. He is the founder of African Youths Initiative Programs (AYIP) and the convener of the International World Revival Conference.
+                    </p>
+                    <a href="#contact" class="btn-outline-gold mt-3">Contact Apostle</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <script src="js/sanity.js"></script>
-  <script src="js/gallery.js"></script>
-  <script src="js/hero.js"></script>
-  <script src="js/quotes.js"></script>
-  <script src="js/main.js"></script>
-  <script>
-    AOS.init({ once: true, duration: 700 });
-  </script>
+    <section class="section-padding bg-black">
+        <div class="container">
+            <div class="text-center mb-5 gs-reveal">
+                <h2 class="text-white serif">Books by Apostle Everest</h2>
+                <div class="divider-gold mx-auto"></div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 gs-reveal">
+                    <div class="book-card">
+                        <div class="book-cover-placeholder">Book Cover 1</div>
+                        <h5 class="text-white mt-3">The Price of Revival</h5>
+                    </div>
+                </div>
+                <div class="col-md-4 gs-reveal">
+                    <div class="book-card">
+                        <div class="book-cover-placeholder">Book Cover 2</div>
+                        <h5 class="text-white mt-3">Sustaining The Fire</h5>
+                    </div>
+                </div>
+                <div class="col-md-4 gs-reveal">
+                    <div class="book-card">
+                        <div class="book-cover-placeholder">Book Cover 3</div>
+                        <h5 class="text-white mt-3">Apostolic Foundations</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="#" class="btn-gold">See All Books</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-darker position-relative">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 gs-reveal">
+                    <div class="p-4 border border-gold-subtle h-100">
+                        <h3 class="text-white serif mb-3"><i class="fas fa-eye text-gold me-2"></i> Our Vision</h3>
+                        <p class="text-gray">
+                            To bring balance to the body of Christ, teach sound and accurate doctrine, ignite a wildfire of revival across campuses and among youths, unleashing a generation of radical Christ-followers anchored in unwavering righteousness.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0 gs-reveal">
+                    <div class="p-4 border border-gold-subtle h-100">
+                        <h3 class="text-white serif mb-3"><i class="fas fa-rocket text-gold me-2"></i> Our Mission</h3>
+                        <p class="text-gray">
+                            To catalyze spiritual awakening across campuses and youth communities, discipling radical Christ-followers in unwavering righteousness, fervent prayer, and unshakeable biblical truth.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-gold text-dark text-center">
+        <div class="container">
+            <h2 class="display-4 serif fw-bold mb-4">Soul Winning Mandate</h2>
+            <p class="lead fw-medium max-w-800 mx-auto">
+                "My mandate is clear: to lead at least <span class="fw-bold display-6">5,000 SOULS</span> to Christ annually."
+            </p>
+            <p class="mb-5">Join us in fulfilling this Great Commission.</p>
+            <div class="mandate-flier gs-reveal">
+                <img src="images/mandate-flier.jpg" alt="5000 Souls Mandate Flier" class="img-fluid shadow-lg rounded">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-black">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 gs-reveal">
+                    <div class="qavah-logo-bg">
+                        <img src="images/qavah-logo.png" alt="Qavah Network" class="img-fluid opacity-50">
+                    </div>
+                </div>
+                <div class="col-lg-7 gs-reveal">
+                    <span class="text-gold text-uppercase">Ministry Agenda</span>
+                    <h2 class="text-white serif mb-4">Qavah Revival Network</h2>
+                    <p class="text-gray">
+                        Qavah Revival Network exists to ignite and sustain a global move of God marked by fire, prayer, light, and the power of the Holy Spirit. It is a Spirit-led mandate to awaken the Church and restore Apostolic Christianity.
+                    </p>
+                    <ul class="custom-list text-gray mt-4">
+                        <li><i class="fas fa-check text-gold"></i> Revival Fire & Awakening</li>
+                        <li><i class="fas fa-check text-gold"></i> Stewardship of God’s Presence</li>
+                        <li><i class="fas fa-check text-gold"></i> Global Reach & Influence</li>
+                        <li><i class="fas fa-check text-gold"></i> Apostolic Mandates</li>
+                    </ul>
+                    <a href="#" class="link-gold mt-3 d-inline-block">Read Full Ministry Profile</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="section-padding bg-darker">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0 gs-reveal">
+                    <h3 class="text-white serif mb-4">Weekly Programs</h3>
+                    <div class="program-card">
+                        <h5 class="text-gold">Qavah Prayer Drill</h5>
+                        <p class="text-white mb-0">Every Saturday | 8am - 3pm</p>
+                    </div>
+                    <div class="program-card">
+                        <h5 class="text-gold">Apostolic Hour</h5>
+                        <p class="text-white mb-0">Sundays | 4pm - 7pm</p>
+                        <small class="text-gray">'Expand your knowledge and unlock your miracle'</small>
+                    </div>
+                    <div class="program-card">
+                        <h5 class="text-gold">12hrs Prayer Drill</h5>
+                        <p class="text-white mb-0">Last Saturday of Month | 7am - 7pm</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 gs-reveal">
+                    <div class="join-card text-center p-5 border border-gold">
+                        <h3 class="text-white mb-3">Join Our Communities</h3>
+                        <p class="text-gray mb-4">
+                            Are you yearning to be empowered with fire? Do you desire mentorship? Join our WhatsApp and Facebook communities today.
+                        </p>
+                        <div class="d-grid gap-2">
+                            <a href="#" class="btn btn-success"><i class="fab fa-whatsapp me-2"></i> Join WhatsApp Group</a>
+                            <a href="#" class="btn btn-primary"><i class="fab fa-facebook me-2"></i> Join Facebook Group</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-black pt-5">
+        <div class="container section-padding">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8">
+                    <h2 class="text-white serif mb-3">Become a Partner</h2>
+                    <p class="text-gray mb-4">We invite you to join us in fulfilling our mission and soul-winning endeavors. Your generous support is greatly appreciated.</p>
+                    <div class="account-details p-3 bg-darker d-inline-block rounded border border-gold-subtle">
+                        <h5 class="text-gold mb-1">Account Details</h5>
+                        <p class="text-white mb-0 font-monospace">Bank Name: [Bank Name] | Acc: [0000000000]</p>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="border-secondary my-5">
+
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4 class="text-white serif">John Everest Ministries</h4>
+                    <p class="text-gray small mt-3">Restoring Apostolic Christianity and birthing last days' revival.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-gold mb-3">Contact Us</h5>
+                    <ul class="list-unstyled text-gray">
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 07040440633</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> Johneverestministires7@gmail.com</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Lagos, Nigeria</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-gold mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#about" class="text-gray text-decoration-none hover-gold">About</a></li>
+                        <li><a href="#programs" class="text-gray text-decoration-none hover-gold">Programs</a></li>
+                        <li><a href="gallery.html" class="text-gray text-decoration-none hover-gold">Gallery</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="text-secondary small">© 2025 John Everest Ministries Int'l. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script src="/js/main.js"></script>
+
 </body>
 </html>
