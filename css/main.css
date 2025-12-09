@@ -300,6 +300,9 @@ a {
     .text-uppercase, .link-gold, .btn-outline-gold {
         font-weight: 700;
         font-size: 1.2rem;
+        background-color: #fff;
+        padding: 5px;
+        border-radius: 20px;
     }
     
     .section-padding { padding: 60px 0; }
