@@ -202,7 +202,8 @@ a {
 /* BOOK CARD PLACEHOLDERS */
 .book-card { text-align: center; }
 .book-cover-placeholder {
-    width: 100%; height: 350px;
+    width: 100%; 
+    /* height: 350px; */
     background: #1a1d20;
     border: 1px solid #333;
     display: flex; align-items: center; justify-content: center;
@@ -281,16 +282,24 @@ a {
 /* --- MOBILE SPECIFIC TYPOGRAPHY & FIXES --- */
 @media (max-width: 768px) {
     /* Increase body text size for mobile reading */
-    html { font-size: 16px;} 
+    html { font-size: 16px !important;} 
+
+    /* Disable Custom Cursor on Mobile (improves performance) */
+    .cb-cursor, .cb-cursor-follower { display: none; }
+    body { cursor: auto; }
     
-    h1.display-2 { font-size: 2.5rem; } /* Scale down huge headings */
-    h2.display-5 { font-size: 2rem; }
-    h3.display-6 { font-size: 1.5rem; }
+    h1 { font-size: 2.5rem; } /* Scale down huge headings */
+    h2,h3,h4,h5 { font-size: 2rem; }
     
     /* Make paragraphs readable without zooming */
     p {
-        font-size: 1.1rem; 
+        font-size: 1.5rem; 
         line-height: 1.6;
+    }
+
+    .text-uppercase, .link-gold, .btn-outline-gold {
+        font-weight: 700;
+        font-size: 1.2rem;
     }
     
     .section-padding { padding: 60px 0; }
@@ -300,6 +309,11 @@ a {
         padding: 20px;
     }
 
+    
+    .book-cover-placeholder{
+        overflow: hidden !important;
+        /* padding: 10% !important; */
+    }
     /* Center nav items on mobile */
     .nav-link { margin-left: 0; margin-bottom: 15px; text-align: center; font-size: 1.1rem; }
     .btn-gold-nav { display: inline-block; width: 100%; text-align: center; }
