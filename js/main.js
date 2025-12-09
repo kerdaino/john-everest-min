@@ -27,11 +27,21 @@ document.addEventListener("DOMContentLoaded", function () {
         gsap.to('.hero-content', { opacity: 1, y: 0, duration: 1.5, delay: 0.5, ease: "power3.out" });
     }
 
-    // 2. QUOTE SLIDER (SIMPLE)
+    // 2. QUOTE SLIDER 
     if (document.querySelector('.quoteSwiper')) {
         new Swiper(".quoteSwiper", {
             loop: true,
-            autoplay: { delay: 4000 },
+            effect: "fade", // Fade looks better with changing backgrounds
+            fadeEffect: { crossFade: true },
+            speed: 1000,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
         });
     }
 
