@@ -297,7 +297,7 @@ a {
         line-height: 1.6;
     }
 
-    .text-uppercase, .link-gold, .btn-outline-gold {
+    .text-uppercase, .link-gold, .btn-outline-gold{
         font-weight: 700;
         font-size: 1.2rem;
         background-color: #fff;
@@ -305,6 +305,10 @@ a {
         border-radius: 20px;
     }
     
+    p, li{
+       font-weight: 700 !important; 
+    }
+
     .section-padding { padding: 60px 0; }
     
     .navbar-collapse {
