@@ -4,7 +4,7 @@
     --dark: #0f1214; /* Deep Black */
     --darker: #0b0d0f;
     --light: #ffffff;
-    --text-gray: #b0b0b0;
+    --text-gray: #fff;
 }
 
 /* GENERAL RESET & TYPOGRAPHY */
@@ -307,7 +307,12 @@ a {
     
     p, li{
        font-weight: 700 !important; 
+       color: #fff !important;
+       font-size: 1.2rem !important;
     }
+
+    .text-gold { color: #fff !important; }
+.text-gray { color: #fff !important; }
 
     .section-padding { padding: 60px 0; }
     
