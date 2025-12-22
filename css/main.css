@@ -108,7 +108,7 @@ a {
 }
 
 .navbar-brand img {
-    width: 20%;
+    width: 40%;
     border-radius: 20px;
 }
 
@@ -458,4 +458,133 @@ a {
         margin: auto;
         padding: 10px;
     }
+}
+
+/* SERMONS */
+.sermon-card {
+  background: #0b0d0f;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: 0.4s ease;
+  height: 100%;
+}
+
+.sermon-card:hover {
+  transform: translateY(-10px);
+}
+
+.sermon-thumb {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.sermon-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s;
+}
+
+.sermon-card:hover img {
+  transform: scale(1.1);
+}
+
+.sermon-type {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--primary);
+  color: #fff;
+  padding: 5px 12px;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+.quote-sermon {
+  min-height: 80vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.quote-sermon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+}
+
+.sermon-quote {
+  position: relative;
+  max-width: 800px;
+  color: #fff;
+  font-size: 2rem;
+  font-family: serif;
+  text-align: center;
+  padding: 2rem;
+}
+
+.sermon-body {
+  max-width: 800px;
+  line-height: 1.8;
+}
+
+.sermon-body h2 {
+  margin-top: 2.5rem;
+  font-family: serif;
+  color: #fff;
+}
+
+.sermon-body h3 {
+  margin-top: 2rem;
+  color: #ddd;
+}
+
+.sermon-body p {
+  margin-bottom: 1.2rem;
+}
+
+.sermon-body blockquote {
+  border-left: 4px solid var(--primary);
+  padding-left: 1.5rem;
+  font-style: italic;
+  color: #ccc;
+  margin: 2rem 0;
+}
+
+.sermon-body ul {
+  margin: 1.5rem 0 1.5rem 1.5rem;
+}
+
+.sermon-body li {
+  margin-bottom: 0.5rem;
+}
+
+.sermon-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.sermon-search,
+.sermon-filter {
+  background: #0b0d0f;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  min-width: 220px;
+}
+
+.sermon-search::placeholder {
+  color: #888;
+}
+
+audio {
+  width: 100%;
+  outline: none;
+  margin-top: 0.5rem;
 }
