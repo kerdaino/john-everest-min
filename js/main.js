@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
       *[_type=="sermon"] | order(publishedAt desc){
         title,
         slug,
-        sermonType,
+        type,
         category,
         publishedAt,
         "image": featuredImage.asset->url
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <article class="sermon-card">
               <div class="sermon-thumb">
                 <img src="${s.image || '/assets/gallery13.jpeg'}" alt="${s.title}">
-                <span class="sermon-type">${s.sermonType || "SERMON"}</span>
+                <span class="sermon-type">${s.type || "SERMON"}</span>
               </div>
               <div class="p-4">
                 <h5 class="text-white serif">${s.title}</h5>
@@ -187,60 +187,69 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /* ===============================
-     9. SINGLE SERMON PAGE (FULL FIX)
-  =============================== */
-  const sermonContainer = document.getElementById("sermon-container");
-  const slug = new URLSearchParams(window.location.search).get("slug");
+   9. SINGLE SERMON PAGE (FIXED)
+=============================== */
+const sermonContainer = document.getElementById("sermon-container");
+const slug = new URLSearchParams(window.location.search).get("slug");
 
-  if (sermonContainer && slug) {
-    const query = `
-      *[_type=="sermon" && slug.current=="${slug}"][0]{
-        title,
-        sermonType,
-        category,
-        publishedAt,
-        scriptureReference,
-        writeUp,
-        externalLink,
-        video,
-        "image": featuredImage.asset->url,
-        "audioUrl": audioFile.asset->url
-      }
-    `;
+if (sermonContainer && slug) {
+  const query = `
+    *[_type=="sermon" && slug.current=="${slug}"][0]{
+      title,
+      type,
+      category,
+      publishedAt,
+      scripture,
+      body,
+      externalLink,
+      videoUrl,
+      "image": featuredImage.asset->url,
+      "audioUrl": audio.asset->url
+    }
+  `;
 
-    fetchSermons(query, sermon => {
-      if (!sermon) {
-        sermonContainer.innerHTML = "<p>Sermon not found.</p>";
-        return;
-      }
+  fetchSermons(query, sermon => {
+    if (!sermon) {
+      sermonContainer.innerHTML = "<p>Sermon not found.</p>";
+      return;
+    }
 
-      sermonContainer.innerHTML = `
-        <h1>${sermon.title}</h1>
+    sermonContainer.innerHTML = `
+      <h1 class="mb-3">${sermon.title}</h1>
 
-        ${sermon.scriptureReference ? `
-          <blockquote class="scripture-ref">
-            ${sermon.scriptureReference}
-          </blockquote>` : ""}
+      ${sermon.scripture ? `
+        <blockquote class="scripture-ref">
+          ${sermon.scripture}
+        </blockquote>
+      ` : ""}
 
-        ${sermon.image ? `<img src="${sermon.image}" class="img-fluid my-4">` : ""}
+      ${sermon.image ? `
+        <img src="${sermon.image}" class="img-fluid my-4" alt="${sermon.title}">
+      ` : ""}
 
-        ${sermon.audioUrl ? `
-          <audio controls class="w-100 my-4">
-            <source src="${sermon.audioUrl}" type="audio/mpeg">
-          </audio>` : ""}
+      ${sermon.audioUrl ? `
+        <audio controls class="my-4">
+          <source src="${sermon.audioUrl}" type="audio/mpeg">
+        </audio>
+      ` : ""}
 
-        <div class="sermon-content">
-          ${renderPortableText(sermon.writeUp)}
+      <div class="sermon-body">
+        ${renderPortableText(sermon.body)}
+      </div>
+
+      ${sermon.externalLink ? `
+        <div class="mt-4">
+          <a href="${sermon.externalLink}" target="_blank" class="link-gold">
+            External Resource →
+          </a>
         </div>
+      ` : ""}
 
-        ${sermon.externalLink ? `
-          <div class="mt-4">
-            <a href="${sermon.externalLink}" target="_blank" class="link-gold">
-              Related Resource →
-            </a>
-          </div>` : ""}
-      `;
-    });
-  }
-
-});
+      ${sermon.videoUrl ? `
+        <div class="ratio ratio-16x9 mt-5">
+          <iframe src="${sermon.videoUrl}" allowfullscreen></iframe>
+        </div>
+      ` : ""}
+    `;
+  });
+}
