@@ -591,3 +591,10 @@ audio {
   outline: none;
   margin-top: 0.5rem;
 }
+
+.scripture-ref {
+  border-left: 4px solid #c9a14a;
+  padding-left: 1rem;
+  font-style: italic;
+  opacity: 0.9;
+}

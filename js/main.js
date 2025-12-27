@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Initial hero reveal
     gsap.to('.hero-content', {
       opacity: 1,
       y: 0,
@@ -53,45 +52,29 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /* ===============================
-     3. MAGIC CURSOR (FAIL SAFE)
+     3. MAGIC CURSOR
   =============================== */
   const cursor = document.querySelector('.cb-cursor');
   const follower = document.querySelector('.cb-cursor-follower');
 
   if (cursor && follower && window.innerWidth > 768) {
     document.addEventListener('mousemove', (e) => {
-      gsap.to(cursor, {
-        x: e.clientX - 10,
-        y: e.clientY - 10,
-        duration: 0.1
-      });
-      gsap.to(follower, {
-        x: e.clientX - 4,
-        y: e.clientY - 4,
-        duration: 0.3
-      });
+      gsap.to(cursor, { x: e.clientX - 10, y: e.clientY - 10, duration: 0.1 });
+      gsap.to(follower, { x: e.clientX - 4, y: e.clientY - 4, duration: 0.3 });
     });
 
     document.querySelectorAll('a, button, .btn').forEach(el => {
       el.addEventListener('mouseenter', () => {
-        gsap.to(cursor, {
-          scale: 2.5,
-          backgroundColor: "rgba(255,255,255,0.1)",
-          borderColor: "transparent"
-        });
+        gsap.to(cursor, { scale: 2.5, backgroundColor: "rgba(255,255,255,0.1)", borderColor: "transparent" });
       });
       el.addEventListener('mouseleave', () => {
-        gsap.to(cursor, {
-          scale: 1,
-          backgroundColor: "transparent",
-          borderColor: "#fff"
-        });
+        gsap.to(cursor, { scale: 1, backgroundColor: "transparent", borderColor: "#fff" });
       });
     });
   }
 
   /* ===============================
-     4. NAVBAR SCROLL EFFECT
+     4. NAVBAR SCROLL
   =============================== */
   const navbar = document.querySelector('.navbar');
   if (navbar) {
@@ -113,10 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
           y: 0,
           duration: 1.2,
           ease: "power3.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%"
-          }
+          scrollTrigger: { trigger: el, start: "top 85%" }
         }
       );
     });
@@ -137,128 +117,96 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /* ===============================
-     7. PORTABLE TEXT RENDERER
+     7. PORTABLE TEXT RENDERER (LINKS FIXED)
   =============================== */
-  function renderSpan(span) {
-    let text = span.text;
-    if (span.marks?.includes("strong")) text = `<strong>${text}</strong>`;
-    if (span.marks?.includes("em")) text = `<em>${text}</em>`;
-    return text;
-  }
-
   function renderPortableText(blocks) {
     if (!blocks) return "";
-    let html = "", list = [];
 
-    blocks.forEach((block, i) => {
-      if (block._type === "block" && block.listItem === "bullet") {
-        list.push(`<li>${block.children.map(renderSpan).join("")}</li>`);
-        if (!blocks[i + 1] || blocks[i + 1].listItem !== "bullet") {
-          html += `<ul>${list.join("")}</ul>`;
-          list = [];
+    return blocks.map(block => {
+      if (block._type !== "block") return "";
+
+      const children = block.children.map(span => {
+        let text = span.text;
+
+        if (span.marks?.length) {
+          span.marks.forEach(mark => {
+            const def = block.markDefs?.find(d => d._key === mark);
+            if (def?.href) {
+              text = `<a href="${def.href}" target="_blank" rel="noopener">${text}</a>`;
+            }
+          });
         }
-        return;
-      }
 
-      if (list.length) {
-        html += `<ul>${list.join("")}</ul>`;
-        list = [];
-      }
+        return text;
+      }).join("");
 
-      if (block._type === "block") {
-        const text = block.children.map(renderSpan).join("");
-        if (block.style === "h2") html += `<h2>${text}</h2>`;
-        else if (block.style === "h3") html += `<h3>${text}</h3>`;
-        else if (block.style === "blockquote") html += `<blockquote>${text}</blockquote>`;
-        else html += `<p>${text}</p>`;
-      }
-    });
-
-    return html;
+      if (block.style === "h2") return `<h2>${children}</h2>`;
+      if (block.style === "h3") return `<h3>${children}</h3>`;
+      if (block.style === "blockquote") return `<blockquote>${children}</blockquote>`;
+      return `<p>${children}</p>`;
+    }).join("");
   }
 
   /* ===============================
-     8. SERMONS LIST PAGE
+     8. SERMON LIST PAGE
   =============================== */
   const sermonsContainer = document.getElementById("sermons-container");
-  const searchInput = document.getElementById("searchInput");
-  const categoryFilter = document.getElementById("categoryFilter");
-  const loadMoreBtn = document.getElementById("load-more-btn");
-
-  let allSermons = [];
-  let currentIndex = 0;
-  const sermonsPerPage = 6;
 
   if (sermonsContainer) {
-    const query = `*[_type=="sermon"]|order(publishedAt desc){
-      title,slug,type,category,publishedAt,
-      "image":featuredImage.asset->url,
-      "audio":audio.asset->url
-    }`;
+    const query = `
+      *[_type=="sermon"] | order(publishedAt desc){
+        title,
+        slug,
+        sermonType,
+        category,
+        publishedAt,
+        "image": featuredImage.asset->url
+      }
+    `;
 
-    fetchSermons(query, results => {
-      allSermons = results;
-      renderSermons();
-    });
-
-    searchInput?.addEventListener("input", applyFilters);
-    categoryFilter?.addEventListener("change", applyFilters);
-    loadMoreBtn?.addEventListener("click", () => renderSermons(true));
-
-    function applyFilters() {
-      const term = searchInput?.value.toLowerCase() || "";
-      const cat = categoryFilter?.value || "all";
-      const filtered = allSermons.filter(s =>
-        s.title.toLowerCase().includes(term) &&
-        (cat === "all" || s.category === cat)
-      );
-      currentIndex = 0;
-      renderSermons(false, filtered);
-    }
-
-    function renderSermons(loadMore = false, sermons = allSermons) {
-      if (!loadMore) sermonsContainer.innerHTML = "";
-
-      const slice = sermons.slice(currentIndex, currentIndex + sermonsPerPage);
-      slice.forEach(s => {
+    fetchSermons(query, sermons => {
+      sermons.forEach(s => {
         sermonsContainer.innerHTML += `
           <div class="col-md-4 mb-4">
-    <article class="sermon-card">
-
-      <div class="sermon-thumb">
-        <img src="${s.image || '/assets/gallery13.jpeg'}" alt="${s.title}">
-        <span class="sermon-type">${s.type?.toUpperCase() || "SERMON"}</span>
-      </div>
-
-      <div class="p-4">
-        <h5 class="text-white serif">${s.title}</h5>
-        <p class="text-gray small">${s.category || ""}</p>
-
-        <a href="sermon.html?slug=${s.slug.current}" class="link-gold">
-          View Sermon →
-        </a>
-      </div>
-
-    </article>
-  </div>`;
+            <article class="sermon-card">
+              <div class="sermon-thumb">
+                <img src="${s.image || '/assets/gallery13.jpeg'}" alt="${s.title}">
+                <span class="sermon-type">${s.sermonType || "SERMON"}</span>
+              </div>
+              <div class="p-4">
+                <h5 class="text-white serif">${s.title}</h5>
+                <p class="text-gray small">${s.category || ""}</p>
+                <a href="sermon.html?slug=${s.slug.current}" class="link-gold">
+                  View Sermon →
+                </a>
+              </div>
+            </article>
+          </div>`;
       });
-
-      currentIndex += sermonsPerPage;
-      loadMoreBtn.style.display = currentIndex >= sermons.length ? "none" : "block";
-    }
+    });
   }
 
   /* ===============================
-     9. SINGLE SERMON PAGE
+     9. SINGLE SERMON PAGE (FULL FIX)
   =============================== */
   const sermonContainer = document.getElementById("sermon-container");
   const slug = new URLSearchParams(window.location.search).get("slug");
 
   if (sermonContainer && slug) {
-    const query = `*[_type=="sermon" && slug.current=="${slug}"][0]{
-      title,type,scripture,publishedAt,body,videoUrl,externalLink,quote,
-      "image":featuredImage.asset->url
-    }`;
+    const query = `
+      *[_type=="sermon" && slug.current=="${slug}"][0]{
+        title,
+        sermonType,
+        category,
+        publishedAt,
+        scriptureReference,
+        writeUp,
+        externalLink,
+        video,
+        "image": featuredImage.asset->url,
+        "audioUrl": audioFile.asset->url
+      }
+    `;
 
     fetchSermons(query, sermon => {
       if (!sermon) {
@@ -268,7 +216,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
       sermonContainer.innerHTML = `
         <h1>${sermon.title}</h1>
-        <div>${renderPortableText(sermon.body)}</div>
+
+        ${sermon.scriptureReference ? `
+          <blockquote class="scripture-ref">
+            ${sermon.scriptureReference}
+          </blockquote>` : ""}
+
+        ${sermon.image ? `<img src="${sermon.image}" class="img-fluid my-4">` : ""}
+
+        ${sermon.audioUrl ? `
+          <audio controls class="w-100 my-4">
+            <source src="${sermon.audioUrl}" type="audio/mpeg">
+          </audio>` : ""}
+
+        <div class="sermon-content">
+          ${renderPortableText(sermon.writeUp)}
+        </div>
+
+        ${sermon.externalLink ? `
+          <div class="mt-4">
+            <a href="${sermon.externalLink}" target="_blank" class="link-gold">
+              Related Resource →
+            </a>
+          </div>` : ""}
       `;
     });
   }
