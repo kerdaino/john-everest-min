@@ -223,12 +223,24 @@ document.addEventListener("DOMContentLoaded", function () {
       slice.forEach(s => {
         sermonsContainer.innerHTML += `
           <div class="col-md-4 mb-4">
-            <article class="sermon-card">
-              <img src="${s.image || '/assets/gallery13.jpeg'}">
-              <h5>${s.title}</h5>
-              <a href="sermon.html?slug=${s.slug.current}">View →</a>
-            </article>
-          </div>`;
+    <article class="sermon-card">
+
+      <div class="sermon-thumb">
+        <img src="${s.image || '/assets/gallery13.jpeg'}" alt="${s.title}">
+        <span class="sermon-type">${s.type?.toUpperCase() || "SERMON"}</span>
+      </div>
+
+      <div class="p-4">
+        <h5 class="text-white serif">${s.title}</h5>
+        <p class="text-gray small">${s.category || ""}</p>
+
+        <a href="sermon.html?slug=${s.slug.current}" class="link-gold">
+          View Sermon →
+        </a>
+      </div>
+
+    </article>
+  </div>`;
       });
 
       currentIndex += sermonsPerPage;
