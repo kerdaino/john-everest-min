@@ -259,54 +259,62 @@ if (sermonContainer && slug) {
    10. UPCOMING PROGRAMS
 =============================== */
 
-const programsContainer = document.getElementById("programs-container");
+ const programsContainer = document.getElementById("programs-container");
 
-if (programsContainer) {
-  const query = `
-    *[_type=="program" && date >= now()]
-    | order(date asc){
-      title,
-      venue,
-      date,
-      description,
-      registrationLink,
-      "imageUrl": image.asset->url
-    }
-  `;
+  if (programsContainer) {
+    const query = `
+      *[_type=="program" &&
+        !(_id in path("drafts.**")) &&
+        date >= now()
+      ]
+      | order(date asc){
+        title,
+        venue,
+        date,
+        description,
+        registrationLink,
+        "imageUrl": image.asset->url
+      }
+    `;
 
-  fetchSermons(query, programs => {
-    if (!programs.length) {
-      programsContainer.innerHTML = `
-        <p class="text-center text-gray">
-          No upcoming programs at the moment.
-        </p>
-      `;
-      return;
-    }
+    fetchSermons(query, programs => {
+      if (!programs.length) {
+        programsContainer.innerHTML = `
+          <p class="text-center text-gray">
+            No upcoming programs at the moment.
+          </p>
+        `;
+        return;
+      }
 
-    programsContainer.innerHTML = programs.map(program => `
-      <div class="col-md-4">
-        <div class="program-card">
-          <img src="${program.imageUrl}" alt="${program.title}">
-          <div class="program-content">
-            <p class="program-date">
-              ${new Date(program.date).toDateString()}
-            </p>
-            <h5 class="text-white">${program.title}</h5>
-            <p class="text-gray">${program.description || ""}</p>
-            <p class="text-gray small">
-              <i class="fas fa-map-marker-alt"></i> ${program.venue || ""}
-            </p>
-            ${
-              program.registrationLink
-                ? `<a href="${program.registrationLink}" class="btn-outline-gold mt-2" target="_blank">
-                     More Details
-                   </a>`
-                : ""
-            }
+      programsContainer.innerHTML = programs.map(program => `
+        <div class="col-md-4">
+          <div class="program-card">
+            ${program.imageUrl ? `
+              <img src="${program.imageUrl}" alt="${program.title}">
+            ` : ""}
+            <div class="program-content">
+              <p class="program-date">
+                ${new Date(program.date).toDateString()}
+              </p>
+              <h5 class="text-white">${program.title}</h5>
+              <p class="text-gray">${program.description || ""}</p>
+              ${program.venue ? `
+                <p class="text-gray small">
+                  <i class="fas fa-map-marker-alt"></i> ${program.venue}
+                </p>
+              ` : ""}
+              ${program.registrationLink ? `
+                <a href="${program.registrationLink}"
+                   class="btn-outline-gold mt-2"
+                   target="_blank">
+                   More Details
+                </a>
+              ` : ""}
+            </div>
           </div>
         </div>
-      </div>
-    `).join("");
-  });
-}
+      `).join("");
+    });
+  }
+
