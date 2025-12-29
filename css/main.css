@@ -613,8 +613,8 @@ audio {
 
 .program-card img {
   width: 100%;
-  height: 240px;
-  object-fit: cover;
+  height: 260px;
+  object-fit: contain;
 }
 
 .program-content {
@@ -625,5 +625,30 @@ audio {
   color: var(--primary);
   font-size: 0.9rem;
   letter-spacing: 1px;
+}
+
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.image-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
 }
 

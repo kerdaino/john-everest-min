@@ -325,4 +325,28 @@ if (galleryPrograms) {
   });
 }
 
+/* ===============================
+   PROGRAM IMAGE POPUP
+=============================== */
+
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImage");
+const closeModal = document.querySelector(".close-modal");
+
+document.body.addEventListener("click", function (e) {
+  if (e.target.matches(".program-card img")) {
+    modal.style.display = "flex";
+    modalImg.src = e.target.src;
+    document.body.style.overflow = "hidden";
+  }
+});
+
+closeModal.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+modal.addEventListener("click", e => {
+  if (e.target === modal) modal.style.display = "none";
+});
+
 });
