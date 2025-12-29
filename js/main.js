@@ -253,45 +253,17 @@ if (sermonContainer && slug) {
     `;
   });
 }
-});
+
 
 /* ===============================
-   10. UPCOMING PROGRAMS
+   10. UPCOMING PROGRAMS (FIXED)
 =============================== */
 
- const programsContainer = document.getElementById("programs-container");
-
-  if (programsContainer) {
-    const query = `
-      *[_type=="program" && date >= today()]
-| order(date asc){
-  title,
-  date,
-  time,
-  venue,
-  description,
-  registrationLink,
-  "imageUrl": image.asset->url
-}
-    `;
-
-    fetchSermons(query, programs => {
-      if (!programs.length) {
-        programsContainer.innerHTML = `
-          <p class="text-center text-gray">
-            No upcoming programs at the moment.
-          </p>
-        `;
-        return;
-      }
-
-      function fetchPrograms(callback) {
+function fetchPrograms(callback) {
   const query = `
-    *[_type=="program" && date >= today()]
-    | order(date asc){
+    *[_type=="program"] | order(date asc){
       title,
       date,
-      time,
       venue,
       description,
       registrationLink,
@@ -301,10 +273,11 @@ if (sermonContainer && slug) {
 
   fetch(`https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?query=${encodeURIComponent(query)}`)
     .then(res => res.json())
-    .then(data => callback(data.result))
+    .then(data => callback(data.result || []))
     .catch(console.error);
 }
 
+/* HOME PAGE PROGRAMS (2 ITEMS) */
 const homePrograms = document.getElementById("home-programs");
 
 if (homePrograms) {
@@ -319,15 +292,18 @@ if (homePrograms) {
             </span>
             <h5 class="text-white mt-2">${p.title}</h5>
             <p class="text-gray">${p.venue || ""}</p>
-            ${p.registrationLink ? `<a href="${p.registrationLink}" class="btn-outline-gold mt-2" target="_blank">Register</a>` : ""}
+            ${p.registrationLink ? `
+              <a href="${p.registrationLink}" class="btn-outline-gold mt-2" target="_blank">
+                Register
+              </a>` : ""}
           </div>
         </div>
       </div>
-    `).join("");
+    `).join("") || `<p class="text-gray">No upcoming programs.</p>`;
   });
 }
 
-
+/* GALLERY PAGE PROGRAMS */
 const galleryPrograms = document.getElementById("programs-container");
 
 if (galleryPrograms) {
@@ -345,39 +321,8 @@ if (galleryPrograms) {
           </div>
         </div>
       </div>
-    `).join("");
+    `).join("") || `<p class="text-gray">No upcoming programs.</p>`;
   });
 }
 
-
-      programsContainer.innerHTML = programs.map(program => `
-        <div class="col-md-4">
-          <div class="program-card">
-            ${program.imageUrl ? `
-              <img src="${program.imageUrl}" alt="${program.title}">
-            ` : ""}
-            <div class="program-content">
-              <p class="program-date">
-                ${new Date(program.date).toDateString()}
-              </p>
-              <h5 class="text-white">${program.title}</h5>
-              <p class="text-gray">${program.description || ""}</p>
-              ${program.venue ? `
-                <p class="text-gray small">
-                  <i class="fas fa-map-marker-alt"></i> ${program.venue}
-                </p>
-              ` : ""}
-              ${program.registrationLink ? `
-                <a href="${program.registrationLink}"
-                   class="btn-outline-gold mt-2"
-                   target="_blank">
-                   More Details
-                </a>
-              ` : ""}
-            </div>
-          </div>
-        </div>
-      `).join("");
-    });
-  }
-
+});
