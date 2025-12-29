@@ -337,7 +337,6 @@ document.body.addEventListener("click", function (e) {
   if (e.target.matches(".program-card img")) {
     modal.style.display = "flex";
     modalImg.src = e.target.src;
-    document.body.style.overflow = "hidden";
   }
 });
 
