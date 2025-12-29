@@ -263,18 +263,16 @@ if (sermonContainer && slug) {
 
   if (programsContainer) {
     const query = `
-      *[_type=="program" &&
-        !(_id in path("drafts.**")) &&
-        date >= now()
-      ]
-      | order(date asc){
-        title,
-        venue,
-        date,
-        description,
-        registrationLink,
-        "imageUrl": image.asset->url
-      }
+      *[_type=="program" && date >= today()]
+| order(date asc){
+  title,
+  date,
+  time,
+  venue,
+  description,
+  registrationLink,
+  "imageUrl": image.asset->url
+}
     `;
 
     fetchSermons(query, programs => {
@@ -286,6 +284,71 @@ if (sermonContainer && slug) {
         `;
         return;
       }
+
+      function fetchPrograms(callback) {
+  const query = `
+    *[_type=="program" && date >= today()]
+    | order(date asc){
+      title,
+      date,
+      time,
+      venue,
+      description,
+      registrationLink,
+      "imageUrl": image.asset->url
+    }
+  `;
+
+  fetch(`https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?query=${encodeURIComponent(query)}`)
+    .then(res => res.json())
+    .then(data => callback(data.result))
+    .catch(console.error);
+}
+
+const homePrograms = document.getElementById("home-programs");
+
+if (homePrograms) {
+  fetchPrograms(programs => {
+    homePrograms.innerHTML = programs.slice(0, 2).map(p => `
+      <div class="col-md-6">
+        <div class="program-card">
+          ${p.imageUrl ? `<img src="${p.imageUrl}" alt="${p.title}">` : ""}
+          <div class="program-content">
+            <span class="program-date">
+              ${new Date(p.date).toDateString()}
+            </span>
+            <h5 class="text-white mt-2">${p.title}</h5>
+            <p class="text-gray">${p.venue || ""}</p>
+            ${p.registrationLink ? `<a href="${p.registrationLink}" class="btn-outline-gold mt-2" target="_blank">Register</a>` : ""}
+          </div>
+        </div>
+      </div>
+    `).join("");
+  });
+}
+
+
+const galleryPrograms = document.getElementById("programs-container");
+
+if (galleryPrograms) {
+  fetchPrograms(programs => {
+    galleryPrograms.innerHTML = programs.map(p => `
+      <div class="col-md-4">
+        <div class="program-card">
+          ${p.imageUrl ? `<img src="${p.imageUrl}" alt="${p.title}">` : ""}
+          <div class="program-content">
+            <span class="program-date">
+              ${new Date(p.date).toDateString()}
+            </span>
+            <h5 class="text-white mt-2">${p.title}</h5>
+            <p class="text-gray">${p.description || ""}</p>
+          </div>
+        </div>
+      </div>
+    `).join("");
+  });
+}
+
 
       programsContainer.innerHTML = programs.map(program => `
         <div class="col-md-4">
