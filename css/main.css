@@ -257,14 +257,14 @@ a {
 }
 
 /* PROGRAMS CARD */
-.program-card {
+.program-cards {
     border-left: 3px solid var(--primary);
     padding-left: 20px;
     margin-bottom: 30px;
     transition: 0.3s;
 }
 
-.program-card:hover {
+.program-cards:hover {
     padding-left: 30px;
 }
 
