@@ -451,6 +451,10 @@ a {
         text-align: center;
     }
 
+    .btn-gold{
+        
+    }
+
     /* Adjust Quote Slider Text */
     .quote-slide h3 {
         font-size: 1.5rem;
@@ -652,3 +656,31 @@ audio {
   cursor: pointer;
 }
 
+/* ACCOUNT DETAILS */
+.account-details {
+  max-width: 520px;
+  margin: auto;
+}
+
+.account-group h6 {
+  letter-spacing: 1px;
+}
+
+.account-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+.account-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 0;
+  border-bottom: 1px dashed rgba(255,255,255,0.1);
+  font-size: 0.95rem;
+}
+
+.account-list li span {
+  color: #ccc;
+}
