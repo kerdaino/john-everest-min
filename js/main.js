@@ -261,7 +261,7 @@ if (sermonContainer && slug) {
 
 function fetchPrograms(callback) {
   const query = `
-    *[_type=="program"] | order(date asc){
+    *[_type=="program"] | order(date desc){
       title,
       date,
       venue,
@@ -282,7 +282,7 @@ const homePrograms = document.getElementById("home-programs");
 
 if (homePrograms) {
   fetchPrograms(programs => {
-    homePrograms.innerHTML = programs.slice(0, 2).map(p => `
+    homePrograms.innerHTML = programs.slice(0, 5).map(p => `
       <div class="col-md-6">
         <div class="program-card">
           ${p.imageUrl ? `<img src="${p.imageUrl}" alt="${p.title}">` : ""}
