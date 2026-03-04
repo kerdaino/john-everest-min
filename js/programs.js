@@ -58,21 +58,31 @@ document.addEventListener("DOMContentLoaded", () => {
     loadMoreBtn.style.display = filtered.length > visibleCount ? "inline-block" : "none";
   }
 
-  function applyFilter(mode) {
-    const today = new Date();
-    const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  function toValidDate(value) {
+  const d = new Date(value);
+  return isNaN(d.getTime()) ? null : d;
+}
 
-    if (mode === "upcoming") {
-      filtered = allPrograms.filter(p => new Date(p.date) >= todayStart);
-    } else if (mode === "past") {
-      filtered = allPrograms.filter(p => new Date(p.date) < todayStart);
-    } else {
-      filtered = [...allPrograms];
-    }
+function applyFilter(mode) {
+  const now = new Date();
 
-    visibleCount = 9;
-    render();
+  if (mode === "upcoming") {
+    filtered = allPrograms.filter(p => {
+      const d = toValidDate(p.date);
+      return d && d >= now; // upcoming = future (from this moment)
+    });
+  } else if (mode === "past") {
+    filtered = allPrograms.filter(p => {
+      const d = toValidDate(p.date);
+      return d && d < now;
+    });
+  } else {
+    filtered = [...allPrograms];
   }
+
+  visibleCount = 9;
+  render();
+}
 
   loadMoreBtn.addEventListener("click", () => {
     visibleCount += 9;
